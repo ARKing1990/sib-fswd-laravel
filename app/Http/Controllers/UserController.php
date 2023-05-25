@@ -8,6 +8,10 @@ class UserController extends Controller
 {
     public function index()
     {
+        return view('user.user');
+    }
+    public function home()
+    {
         return view('user.index');
     }
     public function create()

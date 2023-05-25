@@ -18,13 +18,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.blade.php">Home<span class="sr-only"></span></a>
+                <a class="nav-link" href="{{url('home')}}">Home<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="users.blade.php">List User<span class="sr-only"></span></a>
+                <a class="nav-link" href="{{url('users')}}">List User<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="add.blade.php">Add User<span class="sr-only"></span></a>
+                <a class="nav-link" href="{{url('create')}}">Add User<span class="sr-only"></span></a>
             </li>
             </ul>
         </div>
