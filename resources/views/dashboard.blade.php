@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <main>      
+    <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
@@ -555,3 +555,4 @@
                     </div>
     </main>
 @endsection
+
