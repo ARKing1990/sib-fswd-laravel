@@ -7,26 +7,39 @@
                 <div class="card-body">
                     <form action="{{ route('user.update', $user->id) }}" method="POST">
                         @csrf
+                        //$user->name $user->role_id == $role->id
                         @method('PUT')
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" value="{{ $user->name }}" name="name" required>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $user->name }}" name="name" required>
+                            @error('name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" value="{{ $user->email }}" name="email" required>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ $user->email }}" name="email" required>
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
-                            <input type="text" class="form-control" id="phone" value="{{ $user->phone }}" name="phone" required>
+                            <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" value="{{ $user->phone }}" name="phone" required>
+                            @error('phone')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="role" class="form-label">Role</label>
-                            <select class="form-select" aria-label="role" id="role" name="role">
+                            <select class="form-select @error('role') is-invalid @enderror" aria-label="role" id="role" name="role">
                                 <option selected disabled>- Choose Role -</option>
                                 @foreach ($roles as $role)
-                                    <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                                    <option value="{{ $role->id }}"{{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
                                 @endforeach
+                                @error('role')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
