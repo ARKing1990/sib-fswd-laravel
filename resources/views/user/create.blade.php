@@ -41,6 +41,13 @@
                             @enderror
                             </select>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" value="{{ old('password') }}" name="password" required>
+                            @error('password')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('user.index') }}" class="btn btn-secondary">Cancel</a>
                     </form>
